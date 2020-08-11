@@ -21,22 +21,22 @@ public class StudentController {
 //        return "";
 //    }
 
-    @PostMapping("/newStudent")
+    @PostMapping
     public void createStudent(@RequestBody Student student){
         studentService.addNewStudent(student);
     }
 
-    @GetMapping("/getStudent/{id}")
+    @GetMapping("/{id}")
     public Student getStudentById(@PathVariable int id){
         return studentService.getStudentById(id);
     }
 
-    @GetMapping("/getStudent/{email}")
+    @GetMapping("/email/{email}")
     public Student getStudentByEmail(@PathVariable String email){
         return studentService.getStudentByEmail(email);
     }
 
-    @GetMapping("/getStudent/{primaryPhoneNumber}")
+    @GetMapping("/mobile/{primaryPhoneNumber}")
     public Student getStudentByPrimaryMobile(@PathVariable String primaryPhoneNumber){
         return studentService.getStudentByPrimaryMobile(primaryPhoneNumber);
     }
@@ -51,22 +51,22 @@ public class StudentController {
         return studentService.getStudentByLastName(lastName);
     }
 
-//    @GetMapping("/getStudent/{firstName}&{lastName}")
-//    public Set<Student> getStudentsByLastName(@PathVariable String lastName){
-//        return studentService.getStudentByLastName(lastName);
-//    }
+    @GetMapping("/getStudent/{firstName}/{lastName}")
+    public Set<Student> getStudentsByLastName(@PathVariable String lastName, @PathVariable String firstName){
+        return studentService.getStudentByLastName(lastName);
+    }
 
     @GetMapping("/getStudents")
     public Set<Student> getAllStudents(){
         return studentService.getAllStudents();
     }
 
-    @PatchMapping("/updateStudent/{id}")
+    @PatchMapping("/{id}")
     public boolean updateStudent(@RequestBody Student student, @PathVariable int id){
         return studentService.updateStudent(id,student);
     }
 
-    @GetMapping("/deleteStudent/{id}")
+    @DeleteMapping("/{id}")
     public void deleteStudent(@PathVariable int id){
         studentService.deleteStudent(id);
     }
