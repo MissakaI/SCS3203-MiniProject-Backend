@@ -31,15 +31,16 @@ public class StudentService {
         return (Set<Student>) repository.findAll();
     }
 
+    //getting a student by id
     public Student getStudentById(Integer id){
             Optional<Student> student = repository.findById(id);
             if(student.isEmpty()){
                 log.info("No student found");
-                System.out.println("No student found");
-                return null;
+                return null; //null will be returned if no data found
             }
             Student data = student.get();
-            return data;
+            log.info("Fetching student data"+data.toString());
+            return data; //a student entity will be returned if data found
     }
 
     public Student getStudentByEmail(String email){
@@ -85,18 +86,21 @@ public class StudentService {
     }
 
     public Set<Student> getStudentsByCity(String city){
+        log.info("Fetching all student by city "+city);
         return repository.findAllByCity(city);
     }
 
     public Set<Student> getStudentsBySuburb(String suburb){
+        log.info("Fetching all student by suburb"+suburb);
         return repository.findAllBySuburb(suburb);
     }
 
+    //updating a student
     public boolean updateStudent(Integer id, Student student){
         Student studentToUpdate =this.getStudentById(id);
         if(studentToUpdate == null){
             log.info("No student found");
-            return false;
+            return false; //if update is not successful false will be returned
         }
         else{
             log.info("Student to update found "+studentToUpdate.toString());
@@ -108,11 +112,13 @@ public class StudentService {
             studentToUpdate.setSuburb(student.getSuburb());
             repository.save(studentToUpdate);
             log.info("Student updated "+studentToUpdate.toString());
-            return true;
+            return true; //if update is successful true will be returned
         }
     }
 
+    //deleting a student
     public void deleteStudent(Integer id){
+        log.info("Student with following id will be deleted"+id);
         repository.deleteById(id);
     }
 
