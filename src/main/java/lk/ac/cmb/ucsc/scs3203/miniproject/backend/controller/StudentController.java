@@ -2,12 +2,14 @@ package lk.ac.cmb.ucsc.scs3203.miniproject.backend.controller;
 
 import lk.ac.cmb.ucsc.scs3203.miniproject.backend.models.Student;
 import lk.ac.cmb.ucsc.scs3203.miniproject.backend.service.StudentService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
 @RestController
-@RequestMapping("/api/v1/student/")
+@RequestMapping("/api/v1/student")
 public class StudentController {
 
     //SubjectService subjectService;
@@ -22,8 +24,12 @@ public class StudentController {
 //    }
 
     @PostMapping
-    public void createStudent(@RequestBody Student student){
-        studentService.addNewStudent(student);
+    public ResponseEntity createStudent(@RequestBody Student student){
+        Student s=studentService.addNewStudent(student);
+        if (s != null)
+            return new ResponseEntity(HttpStatus.OK);
+        else
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("/{id}")
