@@ -19,7 +19,6 @@ public class StudentService {
     @Autowired
     StudentRepository repository;
 
-
     public void addNewStudent(Student student){
         //log.info("adding student "+student);
         System.out.println("Adding student "+ student.toString());
@@ -91,6 +90,28 @@ public class StudentService {
         return repository.findAllBySuburb(suburb);
     }
 
+    public boolean updateStudent(Integer id, Student student){
+        Student studentToUpdate =this.getStudentById(id);
+        if(studentToUpdate == null){
+            logger.info("No student found");
+            return false;
+        }
+        else{
+            logger.info("Student to update found "+studentToUpdate.toString());
+            studentToUpdate.setFirstName(student.getFirstName());
+            studentToUpdate.setLastName(student.getLastName());
+            studentToUpdate.setCity(student.getCity());
+            studentToUpdate.setEmail(student.getEmail());
+            studentToUpdate.setPrimaryMobile(student.getPrimaryMobile());
+            studentToUpdate.setSuburb(student.getSuburb());
+            repository.save(studentToUpdate);
+            logger.info("Student updated "+studentToUpdate.toString());
+            return true;
+        }
+    }
 
+    public void deleteStudent(Integer id){
+        repository.deleteById(id);
+    }
 
 }
