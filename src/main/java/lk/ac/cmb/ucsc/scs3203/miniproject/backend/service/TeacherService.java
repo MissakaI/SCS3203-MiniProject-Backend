@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Set;
 
@@ -24,9 +25,9 @@ public class TeacherService {
     }
 
     //service method to get all teachers. A set of teachers will be returned
-    public Set<Teacher> getAllTeachers(){
+    public ArrayList<Teacher> getAllTeachers(){ //
         log.info("Fetching all teachers");
-        return (Set<Teacher>) repository.findAll();
+        return (ArrayList<Teacher>) repository.findAll();
     }
 
     //service method to get a teacher by specific ID
