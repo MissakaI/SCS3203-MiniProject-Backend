@@ -12,7 +12,6 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-@Slf4j
 @Log4j2
 public class StudentService {
 
@@ -32,7 +31,7 @@ public class StudentService {
     public Student getStudentById(Integer id){
             Optional<Student> student = repository.findById(id);
             if(student.isEmpty()){
-                logger.info("No student found");
+                log.info("No student found");
                 System.out.println("No student found");
                 return null;
             }
@@ -43,7 +42,7 @@ public class StudentService {
     public Student getStudentByEmail(String email){
         Optional<Student> student = repository.findByEmail(email);
         if(student.isEmpty()){
-            logger.info("No student found");
+            log.info("No student found");
             //System.out.println("No student found");
             return null;
         }
@@ -63,7 +62,7 @@ public class StudentService {
     public Student getStudentByFirstNameAndLastName(String firstName,String lastName){
         Optional<Student> student = repository.findByFirstNameAndLastName(firstName,lastName);
         if(student.isEmpty()){
-            logger.info("No student found");
+            log.info("No student found");
             //System.out.println("No student found");
             return null;
         }
@@ -74,7 +73,7 @@ public class StudentService {
     public Student getStudentByPrimaryMobile(String primaryMobile){
         Optional<Student> student = repository.findByPrimaryMobile(primaryMobile);
         if(student.isEmpty()){
-            logger.info("No student found");
+            log.info("No student found");
             //System.out.println("No student found");
             return null;
         }
@@ -93,11 +92,11 @@ public class StudentService {
     public boolean updateStudent(Integer id, Student student){
         Student studentToUpdate =this.getStudentById(id);
         if(studentToUpdate == null){
-            logger.info("No student found");
+            log.info("No student found");
             return false;
         }
         else{
-            logger.info("Student to update found "+studentToUpdate.toString());
+            log.info("Student to update found "+studentToUpdate.toString());
             studentToUpdate.setFirstName(student.getFirstName());
             studentToUpdate.setLastName(student.getLastName());
             studentToUpdate.setCity(student.getCity());
@@ -105,7 +104,7 @@ public class StudentService {
             studentToUpdate.setPrimaryMobile(student.getPrimaryMobile());
             studentToUpdate.setSuburb(student.getSuburb());
             repository.save(studentToUpdate);
-            logger.info("Student updated "+studentToUpdate.toString());
+            log.info("Student updated "+studentToUpdate.toString());
             return true;
         }
     }

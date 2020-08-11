@@ -29,7 +29,7 @@ public class TeacherService {
     public Teacher getTeacherById(Integer id){
         Optional<Teacher> teacher = repository.findById(id);
         if(teacher.isEmpty()){
-            logger.info("No teacher found");
+            log.info("No teacher found");
             System.out.println("No teacher found");
             return null;
         }
@@ -40,7 +40,7 @@ public class TeacherService {
     public Teacher getTeacherByEmail(String email){
         Optional<Teacher> teacher = repository.findByEmail(email);
         if(teacher.isEmpty()){
-            logger.info("No teacher found");
+            log.info("No teacher found");
             //System.out.println("No teacher found");
             return null;
         }
@@ -60,7 +60,7 @@ public class TeacherService {
     public Teacher getTeacherByFirstNameAndLastName(String firstName,String lastName){
         Optional<Teacher> teacher = repository.findByFirstNameAndLastName(firstName,lastName);
         if(teacher.isEmpty()){
-            logger.info("No teacher found");
+            log.info("No teacher found");
             //System.out.println("No teacher found");
             return null;
         }
@@ -71,7 +71,7 @@ public class TeacherService {
     public Teacher getTeacherByPrimaryMobile(String primaryMobile){
         Optional<Teacher> teacher = repository.findByPrimaryMobile(primaryMobile);
         if(teacher.isEmpty()){
-            logger.info("No teacher found");
+            log.info("No teacher found");
             //System.out.println("No teacher found");
             return null;
         }
