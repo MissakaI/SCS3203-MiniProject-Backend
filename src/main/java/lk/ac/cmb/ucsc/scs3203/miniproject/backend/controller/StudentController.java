@@ -41,22 +41,22 @@ public class StudentController {
         return studentService.getStudentByPrimaryMobile(primaryPhoneNumber);
     }
 
-    @GetMapping("/getStudent/{firstName}")
+    @GetMapping("/firstName/{firstName}")
     public Set<Student> getStudentsByFirstName(@PathVariable String firstName){
         return studentService.getStudentByFirstName(firstName);
     }
 
-    @GetMapping("/getStudent/{lastName}")
+    @GetMapping("/lastName/{lastName}")
     public Set<Student> getStudentsByLastName(@PathVariable String lastName){
         return studentService.getStudentByLastName(lastName);
     }
 
-    @GetMapping("/getStudent/{firstName}/{lastName}")
+    @GetMapping("/firstName_lastName/{firstName}/{lastName}")
     public Set<Student> getStudentsByLastName(@PathVariable String lastName, @PathVariable String firstName){
         return studentService.getStudentByLastName(lastName);
     }
 
-    @GetMapping("/getStudents")
+    @GetMapping
     public Set<Student> getAllStudents(){
         return studentService.getAllStudents();
     }

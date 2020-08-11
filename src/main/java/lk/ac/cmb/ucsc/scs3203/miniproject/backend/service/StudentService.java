@@ -18,13 +18,16 @@ public class StudentService {
     @Autowired
     StudentRepository repository;
 
+    //creating a new student
     public void addNewStudent(Student student){
-        //log.info("adding student "+student);
+        log.info("adding student "+student);
         System.out.println("Adding student "+ student.toString());
         repository.save(student);
     }
 
+    //getting all students
     public Set<Student> getAllStudents(){
+        log.info("fetching all students");
         return (Set<Student>) repository.findAll();
     }
 
