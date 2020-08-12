@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Subject {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int subjectCode;
     private String subjectName;
     private int grade;

@@ -1,15 +1,13 @@
 package lk.ac.cmb.ucsc.scs3203.miniproject.backend.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.Set;
 
 @Entity
 public class ClassEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     @ManyToOne
