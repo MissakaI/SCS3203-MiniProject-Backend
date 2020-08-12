@@ -17,4 +17,12 @@ public class Student extends User{
     public Student(String firstName, String lastName, String suburb, String city, String primaryMobile, String email) {
         super(firstName, lastName, suburb, city, primaryMobile, email);
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
