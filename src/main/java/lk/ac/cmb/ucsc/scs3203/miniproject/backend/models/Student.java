@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Student extends User{
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     public Student() {
