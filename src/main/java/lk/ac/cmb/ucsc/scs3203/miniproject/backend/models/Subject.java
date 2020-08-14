@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class Subject {
@@ -35,5 +36,20 @@ public class Subject {
 
     public void setGrade(int grade) {
         this.grade = grade;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Subject)) return false;
+        Subject subject = (Subject) o;
+        return getSubjectCode() == subject.getSubjectCode() &&
+                getGrade() == subject.getGrade() &&
+                getSubjectName().equals(subject.getSubjectName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSubjectCode(), getSubjectName(), getGrade());
     }
 }

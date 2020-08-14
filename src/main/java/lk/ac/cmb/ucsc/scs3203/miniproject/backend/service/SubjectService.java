@@ -6,14 +6,18 @@ import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 @Service
-@Slf4j
 @Log4j2
 public class SubjectService {
     SubjectRepository repository;
+
+    public SubjectService(SubjectRepository repository) {
+        this.repository = repository;
+    }
 
     //create subject
     public Subject addSubject(Subject subject) {
@@ -22,9 +26,9 @@ public class SubjectService {
     }
 
     //get all subjects
-    public Set<Subject> getAllSubjects() {
+    public List<Subject> getAllSubjects() {
         log.info("fetching all subjects");
-        return (Set<Subject>) repository.findAll();
+        return (List<Subject>) repository.findAll();
     }
 
     //get subject by subject code

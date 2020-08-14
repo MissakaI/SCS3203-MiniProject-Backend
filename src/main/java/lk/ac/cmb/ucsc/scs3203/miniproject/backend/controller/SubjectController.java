@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/subjects/")
+@RequestMapping("/api/v1/subjects")
 public class SubjectController {
 
     SubjectService subjectService;
@@ -35,7 +35,7 @@ public class SubjectController {
     }
 
     @GetMapping
-    public Set<Subject> getSubject() {
+    public List<Subject> getSubjects() {
         return subjectService.getAllSubjects();
     }
 
