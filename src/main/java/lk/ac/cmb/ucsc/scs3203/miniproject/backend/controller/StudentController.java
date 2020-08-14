@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -63,7 +64,7 @@ public class StudentController {
     }
 
     @GetMapping
-    public Set<Student> getAllStudents(){
+    public List<Student> getAllStudents(){
         return studentService.getAllStudents();
     }
 

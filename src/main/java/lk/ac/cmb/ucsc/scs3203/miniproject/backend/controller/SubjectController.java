@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/v1/subject/")
-@Log4j2
+@RequestMapping("/api/v1/subjects/")
 public class SubjectController {
 
     SubjectService subjectService;
