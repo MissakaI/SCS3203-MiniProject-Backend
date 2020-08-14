@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/v1/subject/")
+@RequestMapping("/api/v1/subjects/")
 public class SubjectController {
 
     SubjectService subjectService;
@@ -20,6 +22,11 @@ public class SubjectController {
     @GetMapping("/id/{id}")  //localhost:8080/scs3203/api/v1/subject/id/1
     String demo(@RequestBody Subject id){
         return "";
+    }
+
+    @GetMapping
+    List<Subject> getAllSubjects(){
+        return null;
     }
 
 }

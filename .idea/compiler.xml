@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Miniproject" />
         <module name="SCS3203-MiniProject-Backend" />
+        <module name="Miniproject" />
       </profile>
     </annotationProcessing>
   </component>
