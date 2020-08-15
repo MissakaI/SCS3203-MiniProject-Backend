@@ -22,7 +22,7 @@ public class TeacherController {
 //        return "";
 //    }
     @PostMapping
-    public void createStudent(@RequestBody Teacher teacher){
+    public void createTeacher(@RequestBody Teacher teacher){
     teacherService.addNewTeacher(teacher);
 }
 

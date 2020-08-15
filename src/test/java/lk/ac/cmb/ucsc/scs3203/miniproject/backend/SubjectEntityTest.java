@@ -8,6 +8,8 @@ import org.junit.platform.commons.annotation.Testable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 @Testable
@@ -18,20 +20,16 @@ public class SubjectEntityTest {
     SubjectRepository repository;
 
     @Test
-    public void createNewSubject(){
-        Subject subject=new Subject();
-        subject.setSubjectName("SYS_ADMIN");
-        subject.setGrade(6);
+    public void createNewSubjects(){
+        List<Subject> subjects=new ArrayList<>();
+        for (int i = 6; i < 12; i++) {
+            Subject subject=new Subject();
+            subject.setSubjectName("SCIENCE");
+            subject.setGrade(i);
+            subjects.add(subject);
+        }
 
-        repository.save(subject);
-    }
-
-//    @Test
-    public void updateSubject(){
-        Subject subject=repository.findBySubjectNameAndGrade("SYS_ADMIN",6);
-        System.out.println("Subject Code"+subject.getSubjectCode());
-        subject.setGrade(7);
-        repository.save(subject);
+        repository.saveAll(subjects);
     }
 
 }
