@@ -8,6 +8,6 @@ import javax.persistence.Id;
 @Entity
 public class Teacher extends User {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 }

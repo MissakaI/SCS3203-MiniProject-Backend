@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -19,16 +20,16 @@ public class StudentService {
     StudentRepository repository;
 
     //creating a new student
-    public void addNewStudent(Student student){
+    public Student addNewStudent(Student student){
         log.info("adding student "+student);
         System.out.println("Adding student "+ student.toString());
-        repository.save(student);
+        return repository.save(student);
     }
 
     //getting all students
-    public Set<Student> getAllStudents(){
+    public List<Student> getAllStudents(){
         log.info("fetching all students");
-        return (Set<Student>) repository.findAll();
+        return (List<Student>) repository.findAll();
     }
 
     //getting a student by id

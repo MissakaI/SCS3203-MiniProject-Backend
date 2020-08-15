@@ -13,6 +13,18 @@ public class User {
     protected String primaryMobile;
     protected String email;
 
+    public User() {
+    }
+
+    public User(String firstName, String lastName, String suburb, String city, String primaryMobile, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.suburb = suburb;
+        this.city = city;
+        this.primaryMobile = primaryMobile;
+        this.email = email;
+    }
+
     public String getFirstName() {
         return firstName;
     }
