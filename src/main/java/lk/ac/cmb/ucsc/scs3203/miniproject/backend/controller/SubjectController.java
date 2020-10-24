@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/subjects")
+@Log4j2
 public class SubjectController {
 
     SubjectService subjectService;
@@ -67,6 +68,17 @@ public class SubjectController {
     @DeleteMapping("/{code}")
     public void deleteSubjectByCode(@PathVariable int code) {
         subjectService.deleteSubjectByCode(code);
+        log.info("Single value delete"  );
+    }
+
+    @DeleteMapping("/all/{codes}")
+    public void deleteSubjectsByCodes(@PathVariable int[] codes) {
+        for (int code : codes) {
+            subjectService.deleteSubjectByCode(code);
+            log.info("Deleted subject with code: "+code);
+        }
+//        log.info(codes);
+//        System.out.println();
     }
 
 }

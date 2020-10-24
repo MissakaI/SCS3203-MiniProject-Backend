@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/api/v1/teacher/")
+@RequestMapping("/api/v1/teacher")
 public class TeacherController {
 
     TeacherService teacherService;
