@@ -10,6 +10,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1/teacher")
+@CrossOrigin
 public class TeacherController {
 
     TeacherService teacherService;
@@ -61,7 +62,7 @@ public class TeacherController {
         return teacherService.getAllTeachers();
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public boolean updateTeacher(@RequestBody Teacher teacher, @PathVariable int id){
         return teacherService.updateTeacher(id,teacher);
     }

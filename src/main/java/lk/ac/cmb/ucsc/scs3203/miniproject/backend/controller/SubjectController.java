@@ -68,7 +68,7 @@ public class SubjectController {
     @DeleteMapping("/{code}")
     public void deleteSubjectByCode(@PathVariable int code) {
         subjectService.deleteSubjectByCode(code);
-        log.info("Single value delete"  );
+        log.info("Deleted subject with code: "+code);
     }
 
     @DeleteMapping("/all/{codes}")
