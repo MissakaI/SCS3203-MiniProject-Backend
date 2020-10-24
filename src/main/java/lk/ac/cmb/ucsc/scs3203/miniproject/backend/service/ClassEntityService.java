@@ -17,17 +17,23 @@ import java.util.stream.Collectors;
 @Log4j2
 public class ClassEntityService {
 
-    @Autowired
     ClassEntityRepository repository;
 
     TeacherService teacherService;
     StudentService studentService;
     SubjectService subjectService;
 
+    public ClassEntityService(ClassEntityRepository repository, TeacherService teacherService, StudentService studentService, SubjectService subjectService) {
+        this.repository = repository;
+        this.teacherService = teacherService;
+        this.studentService = studentService;
+        this.subjectService = subjectService;
+    }
+
     //id , teacher , students, time , day, hall
 
     public ClassEntity prepareData(ClassEntityData classData){
-        log.info("preparing data", classData);
+        log.info("preparing data "+classData);
         Teacher teacher = teacherService.getTeacherById(classData.getTeacherId());
         Subject subject = subjectService.getSubjectByCode(classData.getSubjectId());
         Set<Student> students = classData.getStudentsIds().stream().
@@ -64,9 +70,9 @@ public class ClassEntityService {
     }
 
     //get all classes
-    public Set<ClassEntity> getAllClasses(){
+    public List<ClassEntity> getAllClasses(){
         log.info("fetching all classes");
-        return (Set<ClassEntity>) repository.findAll();
+        return (List<ClassEntity>) repository.findAll();
     }
 
     //get all classes in a specific day

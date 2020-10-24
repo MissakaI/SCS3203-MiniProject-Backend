@@ -30,7 +30,7 @@ public class ClassEntityController {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public boolean updateStudent(@RequestBody ClassEntityData classEntityData, @PathVariable int id){
         return classEntityService.updateClassEntity(id,classEntityData);
     }
@@ -41,7 +41,7 @@ public class ClassEntityController {
     }
 
     @GetMapping
-    public Set<ClassEntity> getAllClasses(){
+    public List<ClassEntity> getAllClasses(){
         return classEntityService.getAllClasses();
     }
 

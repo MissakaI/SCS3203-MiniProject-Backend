@@ -25,6 +25,28 @@ public class ClassEntity {
 
     private String hall;
 
+    public ClassEntity() {
+    }
+
+    public ClassEntity(Teacher teacher, Subject subject, Set<Student> students, LocalTime time, String day, String hall) {
+        this.teacher = teacher;
+        this.subject = subject;
+        this.students = students;
+        this.time = time;
+        this.day = day;
+        this.hall = hall;
+    }
+
+    public ClassEntity(int id, Teacher teacher, Subject subject, Set<Student> students, LocalTime time, String day, String hall) {
+        this.id = id;
+        this.teacher = teacher;
+        this.subject = subject;
+        this.students = students;
+        this.time = time;
+        this.day = day;
+        this.hall = hall;
+    }
+
     public int getId() {
         return id;
     }

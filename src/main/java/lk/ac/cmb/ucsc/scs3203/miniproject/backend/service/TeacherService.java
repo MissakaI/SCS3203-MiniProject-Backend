@@ -31,7 +31,7 @@ public class TeacherService {
     }
 
     //service method to get a teacher by specific ID
-    public Teacher getTeacherById(Integer id){
+    public Teacher getTeacherById(int id){
         Optional<Teacher> teacher = repository.findById(id);
         if(teacher.isEmpty()){
             log.info("No teacher found");

@@ -1,18 +1,16 @@
 package lk.ac.cmb.ucsc.scs3203.miniproject.backend.models;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.Set;
 
 public class ClassEntityData {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private Integer teacherId;
+    private int teacher;
 
-    private Integer subjectId;
+    private int subject;
 
     private Set<Integer> studentsIds;
 
@@ -22,19 +20,33 @@ public class ClassEntityData {
 
     private String hall;
 
+    public ClassEntityData(int id, int teacher, int subject, Set<Integer> studentsIds, LocalTime time, String day, String hall) {
+        this.id = id;
+        this.teacher = teacher;
+        this.subject = subject;
+        this.studentsIds = studentsIds;
+        this.time = time;
+        this.day = day;
+        this.hall = hall;
+    }
+
+    public ClassEntityData() {
+    }
 
     @Override
     public String toString() {
         return "ClassEntityData{" +
                 "id=" + id +
-                ", teacherId='" + teacherId + '\'' +
-                ", subjectId='" + subjectId + '\'' +
+                ", teacherId=" + teacher +
+                ", subjectId=" + subject +
                 ", studentsIds=" + studentsIds +
                 ", time=" + time +
                 ", day='" + day + '\'' +
                 ", hall='" + hall + '\'' +
                 '}';
     }
+
+
 
     public int getId() {
         return id;
@@ -44,27 +56,29 @@ public class ClassEntityData {
         this.id = id;
     }
 
-    public Integer getTeacherId() {
-        return teacherId;
+    public int getTeacherId() {
+        return teacher;
     }
 
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacher(int teacher) {
+        this.teacher = teacher;
     }
 
     public LocalTime getTime() {
         return time;
     }
 
-    public Integer getSubjectId() {
-        return subjectId;
+    public int getSubjectId() {
+        return subject;
     }
 
-    public void setSubjectId(Integer subjectId) {
-        this.subjectId = subjectId;
+    public void setSubject(int subject) {
+        this.subject = subject;
     }
 
     public Set<Integer> getStudentsIds() {
+        if (studentsIds == null)
+            studentsIds=new HashSet<>();
         return studentsIds;
     }
 

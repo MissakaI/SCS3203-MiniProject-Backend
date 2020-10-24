@@ -32,7 +32,7 @@ public class SubjectService {
     }
 
     //get subject by subject code
-    public Subject getSubjectByCode(Integer id) {
+    public Subject getSubjectByCode(int id) {
         log.info("fetching data from teacher id :" + id);
         Optional<Subject> subject = repository.findBySubjectCode(id);
         if (subject.isEmpty()){

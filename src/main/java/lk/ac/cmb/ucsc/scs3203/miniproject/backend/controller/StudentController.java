@@ -68,7 +68,7 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public boolean updateStudent(@RequestBody Student student, @PathVariable int id){
         return studentService.updateStudent(id,student);
     }
